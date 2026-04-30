@@ -34,16 +34,89 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
 /* ============================================
-   CANVAS 3D BACKGROUND
+   LINE ART SVG ANIMÉ
    ============================================ */
 
-#bgCanvas {
+.lineart-wrap {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  right: -5%;
+  width: 55vw;
+  max-width: 680px;
+  height: 100vh;
   z-index: 0;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: lineartFadeIn 2s ease 0.5s forwards;
 }
+
+@keyframes lineartFadeIn {
+  to { opacity: 1; }
+}
+
+#lineartSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* Propriétés communes à tous les traits */
+.la-path {
+  fill: none;
+  stroke: #c9a96e;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Animation de dessin progressif pour chaque path */
+.la-body       { stroke-dasharray: 600; stroke-dashoffset: 600; animation: drawPath 3.5s cubic-bezier(0.16,1,0.3,1) 0.8s forwards; opacity: 0.55; }
+.la-shoulder-l { stroke-dasharray: 250; stroke-dashoffset: 250; animation: drawPath 2.5s cubic-bezier(0.16,1,0.3,1) 1.4s forwards; opacity: 0.45; }
+.la-shoulder-r { stroke-dasharray: 250; stroke-dashoffset: 250; animation: drawPath 2.5s cubic-bezier(0.16,1,0.3,1) 1.6s forwards; opacity: 0.45; }
+.la-neck       { stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawPath 2s cubic-bezier(0.16,1,0.3,1) 1.2s forwards; opacity: 0.5; }
+.la-hand-r     { stroke-dasharray: 300; stroke-dashoffset: 300; animation: drawPath 2.8s cubic-bezier(0.16,1,0.3,1) 2.2s forwards; opacity: 0.5; stroke: #e2c99a; }
+.la-finger-1   { stroke-dasharray: 80;  stroke-dashoffset: 80;  animation: drawPath 1.2s cubic-bezier(0.16,1,0.3,1) 3.0s forwards; opacity: 0.4; stroke: #e2c99a; stroke-width: 0.9; }
+.la-finger-2   { stroke-dasharray: 80;  stroke-dashoffset: 80;  animation: drawPath 1.2s cubic-bezier(0.16,1,0.3,1) 3.1s forwards; opacity: 0.4; stroke: #e2c99a; stroke-width: 0.9; }
+.la-finger-3   { stroke-dasharray: 80;  stroke-dashoffset: 80;  animation: drawPath 1.2s cubic-bezier(0.16,1,0.3,1) 3.2s forwards; opacity: 0.4; stroke: #e2c99a; stroke-width: 0.9; }
+.la-finger-4   { stroke-dasharray: 80;  stroke-dashoffset: 80;  animation: drawPath 1.2s cubic-bezier(0.16,1,0.3,1) 3.3s forwards; opacity: 0.4; stroke: #e2c99a; stroke-width: 0.9; }
+.la-arm-l      { stroke-dasharray: 280; stroke-dashoffset: 280; animation: drawPath 2.5s cubic-bezier(0.16,1,0.3,1) 1.8s forwards; opacity: 0.4; }
+.la-waist      { stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawPath 2s cubic-bezier(0.16,1,0.3,1) 2.0s forwards; opacity: 0.35; }
+.la-light      { stroke-dasharray: 200; stroke-dashoffset: 200; animation: drawPath 2s cubic-bezier(0.16,1,0.3,1) 2.5s forwards; stroke: #f5ead8; stroke-width: 0.6; }
+
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Flottement doux continu après dessin */
+#lineartSvg {
+  animation: lineartFloat 6s ease-in-out infinite;
+}
+
+@keyframes lineartFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(0.3deg); }
+  66%       { transform: translateY(8px) rotate(-0.2deg); }
+}
+
+/* Lueur dorée en fond de l'illustration */
+.lineart-wrap::before {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 70%;
+  background: radial-gradient(ellipse, rgba(107, 76, 53, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 15%;
+  left: 20%;
+  pointer-events: none;
+  animation: lineartFloat 8s ease-in-out infinite reverse;
+}
+
+
 
 /* ============================================
    CURSEUR PERSONNALISÉ
@@ -94,6 +167,19 @@ body:hover .cursor { opacity: 1; }
   backdrop-filter: blur(20px);
   padding: 1rem 3rem;
   border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-logo-img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.footer-logo-img {
+  height: 80px;
+  width: auto;
+  display: block;
+  margin-bottom: 0.8rem;
 }
 
 .nav-logo {
@@ -979,6 +1065,76 @@ body:hover .cursor { opacity: 1; }
 .soin-card:nth-child(5) { transition-delay: 0.2s; }
 
 /* ============================================
+   GALERIE
+   ============================================ */
+
+.galerie-section {
+  background: linear-gradient(180deg, transparent, rgba(107, 76, 53, 0.05) 50%, transparent);
+}
+
+.galerie-carousel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.galerie-track {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.galerie-slide {
+  flex: 0 0 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.galerie-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.galerie-slide img:hover {
+  transform: scale(1.03);
+}
+
+.galerie-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(8, 7, 5, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  color: var(--creme);
+  width: 52px; height: 52px;
+  font-size: 1.1rem;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  z-index: 2;
+}
+
+.galerie-btn:hover {
+  border-color: var(--or);
+  color: var(--or);
+  background: rgba(8, 7, 5, 0.9);
+}
+
+.galerie-prev { left: 1.5rem; }
+.galerie-next { right: 1.5rem; }
+
+.galerie-dots {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+/* ============================================
    RESPONSIVE
    ============================================ */
 
@@ -994,6 +1150,7 @@ body:hover .cursor { opacity: 1; }
   #navbar.scrolled { padding: 0.8rem 1.5rem; }
   .nav-links, .nav-cta { display: none; }
   .nav-burger { display: flex; }
+  .lineart-wrap { display: none; }
 
   .hero { padding: 7rem 1.5rem 4rem; }
   .hero-orb-wrap { display: none; }
