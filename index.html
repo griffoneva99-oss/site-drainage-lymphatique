@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOMA — Drainage Lymphatique · Ostéopathie & Bien-être</title>
+  <meta name="description" content="Alice, spécialiste en drainage lymphatique, ostéopathie et bien-être à Marignane. Prenez rendez-vous en ligne." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Curseur personnalisé -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Canvas 3D -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-logo">SOMA</div>
+    <ul class="nav-links">
+      <li><a href="#soins">Soins</a></li>
+      <li><a href="#alice">Alice</a></li>
+      <li><a href="#tarifs">Tarifs</a></li>
+      <li><a href="#avis">Avis</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="nav-cta">Réserver</a>
+    <button class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#soins" class="mobile-link">Soins</a></li>
+      <li><a href="#alice" class="mobile-link">Alice</a></li>
+      <li><a href="#tarifs" class="mobile-link">Tarifs</a></li>
+      <li><a href="#avis" class="mobile-link">Avis</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+      <li><a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="mobile-link cta-link">Réserver en ligne</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal">Drainage Lymphatique · Ostéopathie · Bien-être</div>
+      <h1 class="hero-title reveal">
+        <span class="line">Révélez la</span>
+        <span class="line italic">légèreté</span>
+        <span class="line">de votre corps</span>
+      </h1>
+      <p class="hero-sub reveal">Marignane — Prise en charge personnalisée, toucher expert, résultats ressentis dès la première séance.</p>
+      <div class="hero-actions reveal">
+        <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="btn-primary">Prendre rendez-vous</a>
+        <a href="#soins" class="btn-ghost">Découvrir les soins</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat"><span class="stat-num">5.0</span><span class="stat-label">Note Planity</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-num">12</span><span class="stat-label">Avis clients</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><span class="stat-num">7j/7</span><span class="stat-label">Disponible</span></div>
+      </div>
+    </div>
+    <div class="hero-orb-wrap">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Défiler</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ALICE -->
+  <section class="section alice-section" id="alice">
+    <div class="container">
+      <div class="alice-grid">
+        <div class="alice-image-wrap reveal-left">
+          <!-- Remplacer src par le chemin de la vraie photo -->
+          <div class="alice-photo-placeholder alice-photo">
+            <div class="placeholder-inner">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="35" r="20" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M10 90 Q50 60 90 90" stroke="currentColor" stroke-width="1.5" fill="none"/>
+              </svg>
+              <p>Photo d'Alice</p>
+            </div>
+          </div>
+          <div class="alice-rating">
+            <div class="stars">★★★★★</div>
+            <span>5.0 / 5 — 12 avis</span>
+          </div>
+        </div>
+        <div class="alice-text reveal-right">
+          <div class="section-tag">Votre praticienne</div>
+          <h2 class="section-title">Alice,<br/><em>une approche qui transforme</em></h2>
+          <p class="alice-desc">Esthéticienne spécialisée en drainage lymphatique à Marignane, Alice allie expertise technique et écoute attentive. Son toucher doux et précis fait d'elle une praticienne sincèrement appréciée, pour qui chaque soin est une expérience pensée sur mesure.</p>
+          <p class="alice-desc">Passionnée par le bien-être et la satisfaction de ses clients, elle combine drainage lymphatique, ostéopathie et massages pour accompagner chaque personne vers un mieux-être profond et durable.</p>
+          <ul class="alice-values">
+            <li><span class="value-dot"></span>Approche personnalisée</li>
+            <li><span class="value-dot"></span>Toucher doux et expert</li>
+            <li><span class="value-dot"></span>Résultats ressentis dès la 1ère séance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOINS -->
+  <section class="section soins-section" id="soins">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Prestations</div>
+        <h2 class="section-title">Les soins <em>SOMA</em></h2>
+        <p class="section-intro">Des soins spécialisés, adaptés à vos besoins, pour révéler la légèreté naturelle de votre corps.</p>
+      </div>
+
+      <!-- Offres découverte -->
+      <div class="decouverte-banner reveal">
+        <div class="decouverte-label">✦ Offres Découverte — 1ère séance</div>
+        <div class="decouverte-cards">
+          <div class="decouverte-card">
+            <span class="dc-name">Drainage corps entier · 1h</span>
+            <span class="dc-price">70€</span>
+          </div>
+          <div class="decouverte-card">
+            <span class="dc-name">Remodelage visage · 40min</span>
+            <span class="dc-price">45€</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cards soins -->
+      <div class="soins-grid">
+
+        <div class="soin-card reveal" data-index="0">
+          <div class="soin-card-inner">
+            <div class="soin-icon">◎</div>
+            <h3>Drainage Corps Entier</h3>
+            <p>Massage doux et rythmé stimulant la circulation lymphatique et sanguine. Recommandé pour les jambes lourdes, la rétention d'eau, les œdèmes et la récupération sportive.</p>
+            <div class="soin-tarifs">
+              <div class="tarif-line"><span>Corps entier · 1h</span><span>100€</span></div>
+              <div class="tarif-line"><span>Corps & Visage · 1h40</span><span>130€</span></div>
+              <div class="tarif-line highlight"><span>Cure 5 séances</span><span>450€</span></div>
+            </div>
+            <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="soin-cta">Réserver →</a>
+          </div>
+        </div>
+
+        <div class="soin-card reveal" data-index="1">
+          <div class="soin-card-inner">
+            <div class="soin-icon">◈</div>
+            <h3>Miracle Face</h3>
+            <p>Massage manuel combinant drainage et remodelage doux du visage. Réduit les gonflements, laisse le visage plus léger, détendu et lumineux.</p>
+            <div class="soin-tarifs">
+              <div class="tarif-line"><span>Visage · 40min</span><span>55€</span></div>
+              <div class="tarif-line"><span>Corps & Visage · 1h40</span><span>130€</span></div>
+              <div class="tarif-line highlight"><span>Cure 5 séances</span><span>250€</span></div>
+            </div>
+            <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="soin-cta">Réserver →</a>
+          </div>
+        </div>
+
+        <div class="soin-card reveal" data-index="2">
+          <div class="soin-card-inner">
+            <div class="soin-icon">✦</div>
+            <h3>Post-Opératoire</h3>
+            <p>Drainage spécialisé accélérant la résorption des œdèmes et hématomes après une chirurgie esthétique ou médicale. Avec accord du chirurgien.</p>
+            <div class="soin-tarifs">
+              <div class="tarif-line"><span>Séance · 45min</span><span>60€</span></div>
+            </div>
+            <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="soin-cta">Réserver →</a>
+          </div>
+        </div>
+
+        <div class="soin-card reveal" data-index="3">
+          <div class="soin-card-inner">
+            <div class="soin-icon">◇</div>
+            <h3>Femme Enceinte</h3>
+            <p>Drainage adapté et sécurisé favorisant la circulation, limitant œdèmes et jambes lourdes liés à la grossesse. Sans pression abdominale.</p>
+            <div class="soin-tarifs">
+              <div class="tarif-line"><span>Séance · 45min</span><span>60€</span></div>
+              <div class="tarif-line highlight"><span>Cure 5 séances</span><span>270€</span></div>
+            </div>
+            <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="soin-cta">Réserver →</a>
+          </div>
+        </div>
+
+        <div class="soin-card reveal" data-index="4">
+          <div class="soin-card-inner">
+            <div class="soin-icon">⊕</div>
+            <h3>Ostéopathie</h3>
+            <p>Approche globale du corps pour soulager tensions et douleurs musculo-squelettiques et viscérales. Soin personnalisé selon le motif de consultation.</p>
+            <div class="soin-tarifs">
+              <div class="tarif-line"><span>1ère séance adulte · 45min</span><span>70€</span></div>
+              <div class="tarif-line"><span>Suivi adulte · 45min</span><span>70€</span></div>
+              <div class="tarif-line"><span>Femme enceinte · 45min</span><span>70€</span></div>
+              <div class="tarif-line"><span>Enfant (3+) · 45min</span><span>70€</span></div>
+            </div>
+            <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="soin-cta">Réserver →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="section avis-section" id="avis">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Témoignages</div>
+        <h2 class="section-title">Ce qu'ils <em>ressentent</em></h2>
+      </div>
+      <div class="avis-global reveal">
+        <div class="avis-score">5.0</div>
+        <div class="avis-stars">★★★★★</div>
+        <div class="avis-count">12 avis clients · Planity</div>
+      </div>
+      <div class="avis-carousel" id="avisCarousel">
+        <div class="avis-track" id="avisTrack">
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"Alice est très douce et très compétente. Je vois une réelle différence à chaque séance. Un vrai moment de bien-être, je recommande les yeux fermés."</p>
+            <span class="avis-author">— Cliente fidèle</span>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"J'ai pu ressentir des effets dès la première séance. Je vais prendre une cure de 5 séances afin de continuer à soulager mes jambes lourdes."</p>
+            <span class="avis-author">— Cliente Planity</span>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"Praticienne compétente et humaine. Alice prend le temps d'écouter, travaille avec finesse et efficacité. Je suis ressortie soulagée."</p>
+            <span class="avis-author">— Cliente Planity</span>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"Très joli salon, Alice est une petite fée souriante. Je suis complètement addict à ses drainages ! Les prix sont super, rien à dire."</p>
+            <span class="avis-author">— Cliente fidèle</span>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"Accueil au top ! Alice est douce et attentionnée. J'ai fait le drainage lymphatique hier et je ressens déjà les bienfaits au niveau des jambes et du ventre."</p>
+            <span class="avis-author">— Cliente Planity</span>
+          </div>
+          <div class="avis-card">
+            <div class="avis-stars-sm">★★★★★</div>
+            <p>"C'est la deuxième fois que je viens pour un drainage et je suis toujours aussi contente ! Magnifique moment de bien-être, je recommande."</p>
+            <span class="avis-author">— Cliente fidèle</span>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="prevBtn" aria-label="Précédent">←</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="nextBtn" aria-label="Suivant">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-left reveal-left">
+          <div class="section-tag">Contact & Réservation</div>
+          <h2 class="section-title">Prendre<br/><em>rendez-vous</em></h2>
+          <p class="contact-intro">Disponible 7j/7, de 10h à 20h30. Réservation en ligne, gratuite, confirmation immédiate.</p>
+          <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank" class="btn-primary large">Réserver en ligne →</a>
+        </div>
+        <div class="contact-right reveal-right">
+          <div class="contact-info-grid">
+            <div class="contact-info-card">
+              <div class="ci-icon">📍</div>
+              <div class="ci-content">
+                <strong>Adresse</strong>
+                <span>ZI La Palun — Technoparc des Florides<br/>Allée de la Palun ZAC, 13700 Marignane<br/>(IBIS) · Parking gratuit</span>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">📞</div>
+              <div class="ci-content">
+                <strong>Téléphone</strong>
+                <a href="tel:0603990277">06 03 99 02 77</a>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">📸</div>
+              <div class="ci-content">
+                <strong>Instagram</strong>
+                <a href="https://instagram.com/soma.marignane" target="_blank">@soma.marignane</a>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="ci-icon">💶</div>
+              <div class="ci-content">
+                <strong>Paiement</strong>
+                <span>Espèces · Carte bleue · Wero</span>
+              </div>
+            </div>
+            <div class="contact-info-card full">
+              <div class="ci-icon">🕐</div>
+              <div class="ci-content">
+                <strong>Horaires</strong>
+                <span>Lundi — Dimanche · 10h00 à 20h30</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">SOMA</div>
+          <p>Drainage Lymphatique · Ostéopathie & Bien-être<br/>Marignane</p>
+        </div>
+        <div class="footer-links">
+          <a href="#soins">Soins</a>
+          <a href="#alice">Alice</a>
+          <a href="#tarifs">Tarifs</a>
+          <a href="#contact">Contact</a>
+          <a href="https://www.planity.com/soma-drainage-lymphatique-13700-marignane" target="_blank">Réserver</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 SOMA — Tous droits réservés</span>
+        <span>Marignane, Bouches-du-Rhône</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="animations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
