@@ -201,6 +201,62 @@
     });
   }
 
+  // ─── Carousel galerie photos ───────────────────────────────
+  const galerieTrack = document.getElementById('galerieTrack');
+  const galeriePrev  = document.getElementById('galeriePrev');
+  const galerieNext  = document.getElementById('galerieNext');
+  const galerieDots  = document.getElementById('galerieDots');
+
+  if (galerieTrack) {
+    const slides = Array.from(galerieTrack.querySelectorAll('.galerie-slide'));
+    const total  = slides.length;
+    let current  = 0;
+    let autoTimer;
+
+    const goTo = (index) => {
+      current = ((index % total) + total) % total;
+      galerieTrack.style.transform = `translateX(-${current * 100}%)`;
+      if (galerieDots) {
+        galerieDots.querySelectorAll('.dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+    };
+
+    const startAuto = () => {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 3500);
+    };
+
+    // Dots
+    if (galerieDots) {
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => { goTo(i); startAuto(); });
+        galerieDots.appendChild(dot);
+      }
+    }
+
+    if (galeriePrev) galeriePrev.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    if (galerieNext) galerieNext.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+    // Swipe touch
+    let touchStart = 0;
+    galerieTrack.addEventListener('touchstart', (e) => { touchStart = e.touches[0].clientX; }, { passive: true });
+    galerieTrack.addEventListener('touchend', (e) => {
+      const diff = touchStart - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) { goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+    }, { passive: true });
+
+    // Pause au survol
+    galerieTrack.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    galerieTrack.addEventListener('mouseleave', startAuto);
+
+    goTo(0);
+    startAuto();
+  }
+
   // ─── Smooth scroll pour les ancres nav ─────────────────────
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
