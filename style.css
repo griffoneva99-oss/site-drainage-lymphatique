@@ -476,10 +476,14 @@ body:hover .cursor { opacity: 1; }
   overflow: hidden;
 }
 
-/* Pour remplacer par une vraie photo :
-   .alice-photo { background-image: url('assets/images/alice-photo.jpg'); background-size: cover; background-position: center; }
-   .placeholder-inner { display: none; }
-*/
+/* Photo d'Alice */
+.alice-photo {
+  background-image: url('alice_portrait.png.png');
+  background-size: cover;
+  background-position: center top;
+}
+
+.alice-photo .placeholder-inner { display: none; }
 
 .alice-photo-placeholder::before {
   content: '';
