@@ -16,12 +16,37 @@
   <div class="cursor" id="cursor"></div>
   <div class="cursor-trail" id="cursorTrail"></div>
 
-  <!-- Canvas 3D -->
-  <canvas id="bgCanvas"></canvas>
+  <!-- Line art SVG animé -->
+  <canvas id="bgCanvas" style="display:none"></canvas>
+  <div class="lineart-wrap" id="lineartWrap">
+    <svg id="lineartSvg" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+      <!-- Corps / dos -->
+      <path class="la-path la-body" d="M300 80 C270 95 250 120 248 155 C246 185 255 200 260 220 C268 250 265 270 258 295 C250 322 242 340 238 365 C233 395 235 420 240 445 C246 475 258 500 265 530 C270 555 268 575 262 600" stroke-linecap="round"/>
+      <!-- Épaule gauche -->
+      <path class="la-path la-shoulder-l" d="M248 155 C235 148 215 145 195 150 C175 156 162 168 155 182 C148 196 150 212 158 224 C166 236 178 242 190 246" stroke-linecap="round"/>
+      <!-- Épaule droite -->
+      <path class="la-path la-shoulder-r" d="M300 80 C318 72 340 68 358 72 C378 78 392 92 398 108 C404 124 400 142 390 154 C380 165 366 170 352 172" stroke-linecap="round"/>
+      <!-- Cou -->
+      <path class="la-path la-neck" d="M285 62 C289 52 294 45 300 40 C306 45 311 52 315 62 C318 72 316 80 312 86 C308 92 304 96 300 98 C296 96 292 92 288 86 C284 80 282 72 285 62Z" stroke-linecap="round"/>
+      <!-- Main droite posée sur l'épaule gauche -->
+      <path class="la-path la-hand-r" d="M352 172 C340 178 325 185 312 194 C300 202 290 210 280 220 C272 228 268 235 265 242" stroke-linecap="round"/>
+      <!-- Doigts main droite -->
+      <path class="la-path la-finger-1" d="M265 242 C262 235 258 228 252 224" stroke-linecap="round"/>
+      <path class="la-path la-finger-2" d="M265 242 C264 234 262 226 258 220" stroke-linecap="round"/>
+      <path class="la-path la-finger-3" d="M265 242 C266 234 266 226 264 220" stroke-linecap="round"/>
+      <path class="la-path la-finger-4" d="M265 242 C268 234 270 226 270 220" stroke-linecap="round"/>
+      <!-- Bras gauche le long du corps -->
+      <path class="la-path la-arm-l" d="M190 246 C182 268 176 292 175 318 C174 344 178 368 185 390 C192 412 200 430 205 452" stroke-linecap="round"/>
+      <!-- Courbe de la taille -->
+      <path class="la-path la-waist" d="M238 365 C228 370 220 380 218 392 C216 404 220 416 228 424 C236 432 248 436 260 438" stroke-linecap="round"/>
+      <!-- Ligne de lumière sur le dos -->
+      <path class="la-path la-light" d="M295 200 C292 230 290 260 292 290 C294 320 298 348 298 378" stroke-linecap="round" opacity="0.4"/>
+    </svg>
+  </div>
 
   <!-- Navigation -->
   <nav id="navbar">
-    <div class="nav-logo">SOMA</div>
+    <div class="nav-logo"><img src="logo_soma.png" alt="SOMA" class="nav-logo-img" /></div>
     <ul class="nav-links">
       <li><a href="#soins">Soins</a></li>
       <li><a href="#alice">Alice</a></li>
@@ -214,6 +239,32 @@
     </div>
   </section>
 
+  <!-- GALERIE -->
+  <section class="section galerie-section" id="galerie">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">L'Institut</div>
+        <h2 class="section-title">Un espace pensé pour <em>votre bien-être</em></h2>
+      </div>
+      <div class="galerie-carousel reveal">
+        <div class="galerie-track" id="galerieTrack">
+          <div class="galerie-slide">
+            <img src="photo_institu_soma_1.jpeg" alt="Institut SOMA — Salle de soin" loading="lazy" />
+          </div>
+          <div class="galerie-slide">
+            <img src="photo_institut_soma_2.jpeg" alt="Institut SOMA — Vue d'ensemble" loading="lazy" />
+          </div>
+          <div class="galerie-slide">
+            <img src="photo-institut-soma_3.jpeg" alt="Institut SOMA — Espace détente" loading="lazy" />
+          </div>
+        </div>
+        <button class="galerie-btn galerie-prev" id="galeriePrev" aria-label="Photo précédente">←</button>
+        <button class="galerie-btn galerie-next" id="galerieNext" aria-label="Photo suivante">→</button>
+        <div class="galerie-dots" id="galerieDots"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- AVIS -->
   <section class="section avis-section" id="avis">
     <div class="container">
@@ -326,7 +377,7 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="footer-logo">SOMA</div>
+          <div class="footer-logo"><img src="logo_soma.png" alt="SOMA" class="footer-logo-img" /></div>
           <p>Drainage Lymphatique · Ostéopathie & Bien-être<br/>Marignane</p>
         </div>
         <div class="footer-links">
