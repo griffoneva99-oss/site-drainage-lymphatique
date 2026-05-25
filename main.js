@@ -201,6 +201,17 @@
     });
   }
 
+  // ─── Carousel cabinet section Alice ───────────────────────
+  const aliceCabinetTrack = document.getElementById('aliceCabinetTrack');
+  if (aliceCabinetTrack) {
+    const aSlides = aliceCabinetTrack.querySelectorAll('.alice-cabinet-slide');
+    let aCurrent = 0;
+    setInterval(() => {
+      aCurrent = (aCurrent + 1) % aSlides.length;
+      aliceCabinetTrack.style.transform = `translateX(-${aCurrent * 100}%)`;
+    }, 3000);
+  }
+
   // ─── Carousel galerie photos ───────────────────────────────
   const galerieTrack = document.getElementById('galerieTrack');
   const galeriePrev  = document.getElementById('galeriePrev');
