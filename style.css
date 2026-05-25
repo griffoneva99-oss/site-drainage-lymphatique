@@ -121,16 +121,65 @@ body:hover .cursor { opacity: 1; }
 .footer-instagram:hover { color: var(--or); }
 
 .nav-logo-img {
-  height: 56px;
-  width: auto;
-  display: block;
-}
-
-.footer-logo-img {
   height: 80px;
   width: auto;
   display: block;
-  margin-bottom: 0.8rem;
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#navbar.scrolled .nav-logo-img {
+  height: 44px;
+}
+
+/* Cabinet carousel dans section Alice */
+.alice-cabinet-carousel {
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  position: relative;
+}
+
+.alice-cabinet-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.alice-cabinet-slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.alice-cabinet-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Portrait Alice petit en bas */
+.alice-portrait-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.alice-portrait-small {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid rgba(201, 169, 110, 0.3);
+}
+
+.alice-portrait-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 234, 216, 0.45);
 }
 
 .nav-logo {
